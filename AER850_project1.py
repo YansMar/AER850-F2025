@@ -147,7 +147,7 @@ rf_params = {
 }
 rf_grid = GridSearchCV(RandomForestClassifier(random_state=42), rf_params, cv=5)
 rf_grid.fit(X_train, y_train)
-print("\n====== Best Random Forest parameteres: ======")
+print("\n====== Best Random Forest parameters: ======")
 print(classification_report(y_test, rf_grid.predict(X_test)))
 
 # *** 3. Support Vector Machine ***
@@ -158,7 +158,7 @@ svm_params = {
 }
 svm_grid = GridSearchCV(SVC(), svm_params, cv=3)
 svm_grid.fit(X_train_scaled, y_train)
-print("\n====== Best SVM parameteres: ======")
+print("\n====== Best SVM parameters: ======")
 print(classification_report(y_test, svm_grid.predict(X_test_scaled)))
 
 # *** 4. RandomizedSearchCV Model ***
@@ -172,7 +172,7 @@ gb_random = RandomizedSearchCV(GradientBoostingClassifier(), gb_params, n_iter=2
     cv=5,random_state=42)
 
 gb_random.fit(X_train, y_train)
-print("\n ====== Best RandomizedSearchCV parameteres: ======")
+print("\n ====== Best RandomizedSearchCV parameters: ======")
 print(classification_report(y_test, gb_random.predict(X_test)))
 
 # ------------ Step 5: Model performance analysis ------------
@@ -271,6 +271,6 @@ new_data_scaled = scaler.transform(new_data)
 predicted_steps = loaded_model.predict(new_data_scaled)
 
 #Display predictions
-print("\n ====== Predicted maintenance steps for randomn coordinates: ======")
+print("\n ====== Predicted maintenance steps for random coordinates: ======")
 for coords, step in zip(new_data, predicted_steps):
     print(f"Coordinates {coords} → Predicted Step: {step}")
